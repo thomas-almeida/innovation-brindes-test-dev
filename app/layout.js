@@ -1,8 +1,8 @@
 import './globals.css' 
 
 export const metadata = {
-  title: 'Innovation Brindes',
-  description: 'Sistema de gerenciamento de produtos',
+  title: 'Innovation Brindes 🟢',
+  description: 'Teste NextJS para Vaga FrontEnd!',
 } 
 
 export default function RootLayout({ children }) {
