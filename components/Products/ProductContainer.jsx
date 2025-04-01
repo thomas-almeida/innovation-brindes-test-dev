@@ -13,7 +13,6 @@ export default function ProductContainer({ initialProducts }) {
     const storedToken = Cookies.get("token")
     if (storedToken) setToken(storedToken)
   }, [])
-  console.log(token)
 
   const handleFilter = (filteredProducts) => {
     setProducts(filteredProducts)

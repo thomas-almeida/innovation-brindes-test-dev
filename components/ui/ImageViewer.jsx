@@ -14,7 +14,7 @@ export default function ImageViewer({
           src={image}
           width={400}
           height={400}
-          alt={`imagem de ${description.toLowerCase()}`}
+          alt={`imagem de ${description}`}
         />
       </div>
       <div className="grid grid-cols-4 gap-2 mt-4">
@@ -28,7 +28,7 @@ export default function ImageViewer({
                 src={image}
                 width={100}
                 height={50}
-                alt={`imagem de ${description.toLowerCase()}`}
+                alt={`imagem de ${description}`}
               />
             </div>
           ))

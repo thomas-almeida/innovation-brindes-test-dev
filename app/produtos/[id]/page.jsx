@@ -32,7 +32,6 @@ async function getProduct(id, token) {
 }
 
 export async function generateMetadata({ params }) {
-  
   const id = params?.id || "Produto"
   return {
     title: `Detalhes do Produto ${id}`,
@@ -42,14 +41,15 @@ export async function generateMetadata({ params }) {
 
 export default async function ProductPage({ params }) {
 
-  if (!params?.id) return notFound()
+  const id = params?.id
+  if (!id) return notFound()
 
   const cookieStore = cookies()
-  const token = cookieStore.get("token")?.value 
-
+  const token = JSON.parse(cookieStore.get("token")?.value )
+  console.log(token)
   if (!token) redirect("/login")
 
-  const product = await getProduct(params.id, token)
+  const product = await getProduct(id, token)
 
   if (!product) return notFound()
 
