@@ -2,19 +2,8 @@ services:
   app:
     build: .
     ports:
-      - "3003:3003"
-    environment:
-      NODE_ENV: production
-      NEXT_SHARP_PATH: "/app/node_modules/sharp"
-      PORT: 3003
-      HOSTNAME: "0.0.0.0"
-    restart: unless-stopped
-    networks:
-      - app_network
+      - "3000:3000"
     volumes:
       - .:/app
       - /app/node_modules
-
-networks:
-  app_network:
-    driver: bridge
+    command: npm run dev
