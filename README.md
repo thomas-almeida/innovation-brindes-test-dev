@@ -17,7 +17,7 @@ filtro para trazer os produtos conforme os filtros/parâmetros utilizados."
 - "Seguir a base de layout do .psd, porém sinta-se livre para seguir sua criatividade
 e alterar/fazer melhorias."
 
-> O projeto está diponível com deploy via vercel e você pode 👉🏾[Vê-lo Online Aqui!](https://innovation-brindes-test-dev.vercel.app/produtos)
+> O projeto está diponível com deploy via vercel e você pode 👉🏾[Ver o Deploy Online Aqui!](https://innovation-brindes-test-dev.vercel.app/produtos)
 
 #### Demais Requisitos:
 - Ser capaz de gerar um docker da aplicação para fácil avaliação e teste
