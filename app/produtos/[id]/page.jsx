@@ -8,6 +8,7 @@ import convertCurrency from "@/utils/convertCurrency"
 import CtaButton from "@/components/ui/CtaButton"
 import Link from "next/link"
 import service from "@/service"
+import productColors from "@/utils/productColors"
 
 async function getProduct(id, token) {
   try {
@@ -16,7 +17,7 @@ async function getProduct(id, token) {
     const data = await res
 
     return Array.isArray(data) ? data[0] : data
-    
+
   } catch (error) {
     console.error("Erro ao buscar produto:", error)
     return null
@@ -37,7 +38,7 @@ export default async function ProductPage({ params }) {
   if (!id) return notFound()
 
   const cookieStore = cookies()
-  const token = JSON.parse(cookieStore.get("token")?.value )
+  const token = JSON.parse(cookieStore.get("token")?.value)
   console.log(token)
   if (!token) redirect("/login")
 
@@ -57,11 +58,28 @@ export default async function ProductPage({ params }) {
               description={product.nome}
             />
           </div>
-          <div className="sm:mt-10 md:w-[50%]">
+          <div className="mt-10 md:w-[50%]">
             <h1 className="text-3xl mb-2 font-bold">{product.nome}</h1>
             <div className="my-4">
               <h2 className="text-xl font-semibold">Descrição do Produto</h2>
               <p className="mt-2 text-xl text-gray-600">{product.descricao}</p>
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold">Cores</h2>
+              <div className="grid grid-cols-5 gap-2 my-4 lg:w-[40%]">
+                {
+                  productColors.map((color) => (
+                    <div
+                      className="w-[25px] h-[25px] shadow-lg rounded-full border border-slate-500 cursor-pointer px-2 hover:border-2 hover:border-slate-300 hover:shadow-lg"
+                      key={color}
+                      style={{
+                        backgroundColor: color
+                      }}
+                    >
+                    </div>
+                  ))
+                }
+              </div>
             </div>
             <div className="mt-6 flex justify-start items-center gap-2">
               <p>Por</p>

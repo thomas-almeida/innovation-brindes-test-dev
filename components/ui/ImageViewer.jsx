@@ -9,7 +9,7 @@ export default function ImageViewer({
 
   return (
     <div>
-      <div className="border border-slate-400 flex justify-center shadow-sm">
+      <div className="border border-slate-400 flex justify-center shadow-sm transition hover:cursor-pointer hover:scale-[1.01]">
         <Image
           src={image}
           width={400}
@@ -22,7 +22,7 @@ export default function ImageViewer({
           mockMapping.map((mock) => (
             <div
               key={mock}
-              className="border border-slate-400 shadow-md"
+              className="border border-slate-400 shadow-md transition hover:cursor-pointer hover:scale-[1.01]"
             >
               <Image
                 src={image}

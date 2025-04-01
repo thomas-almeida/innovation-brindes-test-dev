@@ -3,7 +3,6 @@
 import Link from "next/link"
 import CtaButton from "../ui/CtaButton"
 import convertCurrency from "@/utils/convertCurrency"
-import Image from "next/image"
 
 export default function ProductList({ products, colorOptions }) {
 
@@ -50,13 +49,13 @@ export default function ProductList({ products, colorOptions }) {
                     className="w-full h-fit object-cover mb-4"
                     onError={(e) => e.target.src = '/fallback-image.jpg'}
                   />
-                  <div className="flex justify-start items-center gap-2 px-2 border border-slate-200 rounded-tr-lg absolute bottom-0 bg-white w-[85%]">
+                  <div className="flex justify-start items-center gap-2 px-2 border border-slate-200 rounded-tr-lg absolute bottom-0 bg-white w-[95%]">
                     <img
                       src="/box.png"
                       alt="embalagem-especial"
-                      className="w-[60px] relative top-[-5px]"
+                      className="w-[50px] relative top-[-5px]"
                     />
-                    <p className="text-gray-600 font-bold leading-4 text-sm">com embalagem especial</p>
+                    <p className="text-gray-800 font-bold leading-3.5 text-sm">com embalagem especial</p>
                   </div>
                 </div>
                 <p className="overflow-clip px-4 text-ellipsis text-slate-600 whitespace-pre-line line-clamp-2 my-2">
@@ -65,12 +64,12 @@ export default function ProductList({ products, colorOptions }) {
 
                 <div className="w-[70%] px-4">
                   <p className="text-gray-500 font-semibold">Cores:</p>
-                  <div className="grid grid-cols-6 md:grid-cols-5 gap-4 py-2">
+                  <div className="grid grid-cols-6 md:grid-cols-5 gap-2 py-2">
                     {
                       colorOptions.map((color) => (
                         <div
                           key={color}
-                          className="w-[22px] h-[22px] shadow-lg rounded-full border border-slate-500"
+                          className="w-[20px] h-[20px] shadow-lg rounded-full border border-slate-500 px-2 hover:border-2 hover:border-slate-300 hover:shadow-lg"
                           style={{
                             backgroundColor: color
                           }}
@@ -86,7 +85,7 @@ export default function ProductList({ products, colorOptions }) {
                   <p className="text-3xl text-gray-900 font-bold">
                     {product.preco ? `${convertCurrency.convertToBRL(product.preco)}` : 'Preço não disponível'}
                   </p>
-                  <p className="">gerado pela melhor oferta</p>
+                  <p className="text-sm pb-2">gerado pela melhor oferta</p>
                 </div>
               </div>
             </div>
