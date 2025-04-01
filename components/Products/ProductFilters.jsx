@@ -1,32 +1,32 @@
-"use client" 
+"use client"
 
 import service from "@/service"
-import { useState } from "react" 
+import { useState } from "react"
 
 export default function ProductFilters({ onFilter, token }) {
-  const [query, setQuery] = useState("") 
+  const [query, setQuery] = useState("")
 
   const handleFilterChange = (e) => {
-    setQuery(e.target.value) 
-  } 
+    setQuery(e.target.value)
+  }
 
   const handleFilterSubmit = async () => {
-    if (!query.trim() || !token) return 
+    if (!query.trim() || !token) return
 
-    const isNumeric = /^[0-9]+$/.test(query) 
+    const isNumeric = /^[0-9]+$/.test(query)
     const payload = isNumeric
       ? { codigo_produto: query }
-      : { nome_produto: query } 
+      : { nome_produto: query }
 
     try {
-   
+
       const res = await service.filterProducts(token, payload)
-      const data = await res 
-      onFilter(data) 
+      const data = await res
+      onFilter(data)
     } catch (error) {
-      console.error("Erro ao filtrar produtos:", error) 
+      console.error("Erro ao filtrar produtos:", error)
     }
-  } 
+  }
 
   const clearFilters = async () => {
 
@@ -43,20 +43,20 @@ export default function ProductFilters({ onFilter, token }) {
           },
           body: {},
         }
-      ) 
+      )
 
-      if (!res.ok) throw new Error("Erro ao buscar produtos") 
+      if (!res.ok) throw new Error("Erro ao buscar produtos")
 
-      const data = await res.json() 
-      onFilter(data) 
+      const data = await res.json()
+      onFilter(data)
 
     } catch (error) {
-      console.error("Erro ao filtrar produtos:", error) 
+      console.error("Erro ao filtrar produtos:", error)
     }
   }
 
   return (
-    <div className="mb-6 flex gap-2">
+    <div className="mb-6 flex gap-2 block-here">
       <input
         type="text"
         placeholder="Pesquisar por Nome ou Código..."
@@ -64,18 +64,20 @@ export default function ProductFilters({ onFilter, token }) {
         value={query}
         onChange={handleFilterChange}
       />
-      <button
-        className="bg-primary-500 text-white px-6 py-2 rounded-lg hover:bg-secondary-500 cursor-pointer text-lg"
-        onClick={handleFilterSubmit}
-      >
-        Buscar
-      </button>
-      <button
-        className={query !== "" ? `bg-slate-500 text-white px-6 py-2 rounded-lg hover:bg-slate-600 cursor-pointer text-lg` : `hidden`}
-        onClick={clearFilters}
-      >
-        Limpar
-      </button>
+      <div className="flex justify-between gap-2">
+        <button
+          className="bg-primary-500 text-white px-6 py-2 rounded-lg hover:bg-secondary-500 cursor-pointer text-lg w-full"
+          onClick={handleFilterSubmit}
+        >
+          Buscar
+        </button>
+        <button
+          className={query !== "" ? `bg-slate-500 text-white px-6 py-2 rounded-lg hover:bg-slate-600 cursor-pointer text-lg` : `hidden`}
+          onClick={clearFilters}
+        >
+          Limpar
+        </button>
+      </div>
     </div>
-  ) 
+  )
 }

@@ -15,7 +15,7 @@ export default function UserInfo({ userData }) {
     <>
       <div className="px-2">
         <div className="flex items-center justify-center gap-4">
-          <div className="flex justify-around items-center gap-4">
+          <div className="sm:hidden flex justify-around items-center gap-4">
             <div className="relative">
               <div>
                 <Call

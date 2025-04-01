@@ -65,7 +65,7 @@ export default function ProductList({ products, colorOptions }) {
 
                 <div className="w-[70%] px-4">
                   <p className="text-gray-500 font-semibold">Cores:</p>
-                  <div className="grid grid-cols-6 gap-2 py-2">
+                  <div className="grid grid-cols-6 md:grid-cols-5 gap-4 py-2">
                     {
                       colorOptions.map((color) => (
                         <div

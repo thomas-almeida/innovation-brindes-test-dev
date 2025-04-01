@@ -4,3 +4,14 @@
   --color-primary-500: #8ec605;
   --color-secondary-500: #72c605 
 }
+
+@media (max-width: 640px) {
+  .hide-mobile {
+    display: none;
+  }
+
+  .block-here {
+    display: flex;
+    flex-direction: column;
+  }
+}

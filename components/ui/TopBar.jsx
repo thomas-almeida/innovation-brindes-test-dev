@@ -33,7 +33,7 @@ export default function TopBar() {
             height={200}
             alt="logo"
           />
-          <div>
+          <div className="hide-mobile">
             <UserInfo userData={user} />
           </div>
         </div>
