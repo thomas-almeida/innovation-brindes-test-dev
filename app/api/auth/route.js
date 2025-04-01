@@ -18,13 +18,11 @@ export async function POST(request) {
         { status: 200 }
       );
 
-      // Cookie do Token (Corrigido)
       response.headers.append(
         'Set-Cookie',
-        `token=${data.token_de_acesso}; Path=/; Max-Age=86400; SameSite=Lax${process.env.NODE_ENV === 'production' ? '; Secure' : ''}; HttpOnly`
+        `token=${JSON.stringify(data.token_de_acesso)}; Path=/; Max-Age=86400; SameSite=Lax${process.env.NODE_ENV === 'production' ? '; Secure' : ''}`
       );
 
-      // Cookie do Usuário (Corrigido)
       response.headers.append(
         'Set-Cookie',
         `user=${JSON.stringify(data.dados_usuario)}; Path=/; Max-Age=86400; SameSite=Lax${process.env.NODE_ENV === 'production' ? '; Secure' : ''}`

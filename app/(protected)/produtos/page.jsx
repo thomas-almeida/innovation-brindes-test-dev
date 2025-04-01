@@ -8,11 +8,11 @@ export const dynamic = "force-dynamic"
 
 async function getProducts() {
   const cookieStore = await cookies() 
-  const token = cookieStore.get("token")?.value 
+  const token = JSON.parse(cookieStore.get("token")?.value) 
 
   if (!token) {
     console.error("Token não encontrado!") 
-    //redirect("/login") 
+    redirect("/login") 
   }
 
   try {
