@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Innovation Brindes NextJS Test
+##### Teste para vaga de desenvolvedor FrontEnd na empresa Innovation Brindes
 
-First, run the development server:
+!['Screenshot'](screenshot.png)
 
+### Teste Prático - React/Next
+#### Aplicação:
+
+O desafio do teste era sobre criar uma aplicação utilizando NextJS com ServerSide com os seguintes requisitos:
+- "A aplicação deve prover um sistema de Login validando o acesso pelo endpoint
+de autenticação."
+- "Após o login, chamar o endpoint de listagem de produtos e montar os cards de
+produto."
+- "Na tela de produto é necessário utilizar o endpoint de listagem de produtos com
+filtro para trazer os produtos conforme os filtros/parâmetros utilizados."
+- "Seguir a base de layout do .psd, porém sinta-se livre para seguir sua criatividade
+e alterar/fazer melhorias."
+
+O projeto está diponível com deploy via vercel e você pode [ver por aqui!](https://innovation-brindes-test-dev.vercel.app/produtos)
+
+#### Demais Requisitos:
+- Ser capaz de gerar um docker da aplicação para fácil avaliação e teste
+- Utilizar boas práticas do NextJS
+- Utilizar StyledComponents, Chackra UI ou Tailwindcss
+
+#### Estrutura do Projeto
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+innovation-test/
+├── app/                   
+├── components/            
+├── public/                
+│   └── screenshot.png     
+├── service/               
+├── utils/                 
+│   └── convertCurrency.js 
+│── dockerfile          
+│── docker-compose.yml  
+├── node_modules/          
+├── next.config.mjs        
+├── postcss.config.mjs     
+├── package.json           
+├── jsconfig.json          
+├── .dockerignore          
+├── .gitignore             
+└── README.md              
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Como rodar localmente
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+##### Via Docker
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+  docker-compose up --build
+```
 
-## Learn More
+No ambiente Windows com WSL (meu caso)
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+  wsl
+  docker-compose up --build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+##### Via Npm
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+  npm install OU yarn install ...
+  npm run dev OU yarn dev ...
+```
