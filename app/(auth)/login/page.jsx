@@ -28,10 +28,13 @@ export default function LoginPage() {
   }
 
   return (
-    <ContainerComposition>
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <LoginForm onSubmit={handleLogin} error={error} />
-      </div>
-    </ContainerComposition>
+    <div className='bg-[url(/bg-login.png)] bg-cover'>
+      <ContainerComposition>
+        <div className="min-h-screen flex items-center justify-center">
+          <LoginForm onSubmit={handleLogin} error={error} />
+        </div>
+      </ContainerComposition>
+    </div>
+
   )
 }

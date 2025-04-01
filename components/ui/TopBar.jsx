@@ -24,11 +24,11 @@ export default function TopBar() {
   }, [])
 
   return (
-    <div className="p-6 bg-primary-500 text-white">
+    <div className="px-10 bg-primary-500 text-white">
       <ContainerComposition>
         <div className="flex justify-between items-center">
           <Image
-            src={'/logo-white.png'}
+            src={'/logo-top.png'}
             width={200}
             height={200}
             alt="logo"

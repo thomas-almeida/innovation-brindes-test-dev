@@ -8,11 +8,11 @@ export default function LoginForm({ onSubmit, error }) {
   return (
     <>
       <div>
-        <h1 className="text-4xl font-bold mb-6 text-primary-500">Bem-vindo à Innovation Brindes</h1>
+        <h1 className="text-4xl font-bold mb-24 text-primary-500">Bem-vindo à Innovation Brindes</h1>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-primary-500 p-12 rounded-lg shadow-md w-full"
+          className="bg-primary-500 p-12 py-24 rounded-lg shadow-md w-full"
         >
 
 
@@ -21,11 +21,13 @@ export default function LoginForm({ onSubmit, error }) {
               color={'#585858'}
               width="20px"
               heigth="20px"
+              required
             />
             <input
-              {...register('email', { required: true })}
+              {...register('email')}
               className="w-full px-2 py-2 outline-none placeholder:text-[#585858] font-semibold"
               placeholder='Usuário'
+              required
             />
           </div>
 
@@ -37,7 +39,7 @@ export default function LoginForm({ onSubmit, error }) {
             />
             <input
               type='password'
-              {...register('senha', { required: true })}
+              {...register('senha')}
               className="w-full px-2 py-2 outline-none placeholder:text-[#585858] font-semibold"
               placeholder='Senha'
             />
@@ -50,7 +52,7 @@ export default function LoginForm({ onSubmit, error }) {
           <div className='flex justify-center'>
             <button
               type="submit"
-              className="w-full lg:w-[60%] bg-white py-2 px-4 mt-4 rounded-full hover:bg-slate-200 cursor-pointer transition"
+              className="w-full lg:w-[60%] text-lg font-semibold text-gray-900 bg-white py-4 px-4 mt-4 rounded-full hover:bg-slate-200 cursor-pointer transition"
             >
               Login
             </button>
