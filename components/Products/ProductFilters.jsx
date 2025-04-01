@@ -1,5 +1,6 @@
 "use client" 
 
+import service from "@/service"
 import { useState } from "react" 
 
 export default function ProductFilters({ onFilter, token }) {
@@ -18,21 +19,9 @@ export default function ProductFilters({ onFilter, token }) {
       : { nome_produto: query } 
 
     try {
-      const res = await fetch(
-        "https://apihomolog.innovationbrindes.com.br/api/innova-dinamica/produtos/listar",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(payload),
-        }
-      ) 
-
-      if (!res.ok) throw new Error("Erro ao buscar produtos") 
-
-      const data = await res.json() 
+   
+      const res = await service.filterProducts(token, payload)
+      const data = await res 
       onFilter(data) 
     } catch (error) {
       console.error("Erro ao filtrar produtos:", error) 

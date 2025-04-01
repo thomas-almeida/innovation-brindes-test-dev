@@ -7,24 +7,16 @@ import ImageViewer from "@/components/ui/ImageViewer"
 import convertCurrency from "@/utils/convertCurrency"
 import CtaButton from "@/components/ui/CtaButton"
 import Link from "next/link"
+import service from "@/service"
 
 async function getProduct(id, token) {
   try {
-    const res = await fetch(
-      "https://apihomolog.innovationbrindes.com.br/api/innova-dinamica/produtos/listar",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ codigo_produto: id }),
-      }
-    )
 
-    if (!res.ok) return null
-    const data = await res.json()
+    const res = await service.getProductById(token, id)
+    const data = await res
+
     return Array.isArray(data) ? data[0] : data
+    
   } catch (error) {
     console.error("Erro ao buscar produto:", error)
     return null
