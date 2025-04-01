@@ -2,7 +2,7 @@
 ## Innovation Brindes NextJS Test
 ##### Teste para vaga de desenvolvedor FrontEnd na empresa Innovation Brindes
 
-!['Screenshot'](screenshot.png)
+!['Screenshot'](shots.png)
 
 ### Teste Prático - React/Next ✅
 #### Aplicação:
